@@ -45,12 +45,13 @@ menorAmayor(): void {
   this.listComments.sort((a,b) => a.id - b.id);
 }
 
-moveComment(): void {
-  const firstComment = this.listComments[0]
-  for(let i = 0; i < this.listComments.length - 1 ; i++){
-    this.listComments[i] = this.listComments[i + 1];
-  }
-  this.listComments[this.listComments.length - 1] = firstComment;
+moveComment(id: number): void {
+  
+  const idComment = this.listComments.findIndex(item => item.id === id)
+  const idPosition = this.listComments[idComment];
+  this.listComments[idComment] = this.listComments[idComment - 1];
+  this.listComments[idComment - 1] = idPosition;
+ 
 
 }
 
