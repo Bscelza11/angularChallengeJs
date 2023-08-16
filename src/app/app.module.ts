@@ -9,6 +9,8 @@ import { AlbumsComponent } from './shared/albums/albums.component';
 import { PostsComponent } from './shared/posts/posts.component';
 import { NavbarComponent } from './core/navbar/navbar.component';
 import { CommentsComponent } from './shared/posts/comments/comments.component';
+import { CommentComponent } from './shared/posts/comment/comment.component';
+import { ButtonsComponent } from './shared/posts/buttons/buttons.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { CommentsComponent } from './shared/posts/comments/comments.component';
     AlbumsComponent,
     PostsComponent,
     NavbarComponent,
-    CommentsComponent
+    CommentsComponent,
+    CommentComponent,
+    ButtonsComponent
   ],
   imports: [
     BrowserModule,
