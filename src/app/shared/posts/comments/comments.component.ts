@@ -12,48 +12,49 @@ export class CommentsComponent implements OnInit {
   listComments: any[] = [];
   id: number;
 
-constructor(private route: ActivatedRoute,
-            private postService: PostserviceService){
- this.id = 0;
-}
-
-ngOnInit(): void {
-  this.route.params.subscribe(params => {
-    this.id = params['id'];
-  })
-  this.getComments();
-
-}
-
-getComments(): void {
-  this.postService.getComments(this.id).subscribe(data => {
-    this.listComments = (data)
-  })
-}
-
-deleteComment(id: number): void {
-  const eliminar = this.listComments.findIndex(comment => comment.id === id)
-  if(eliminar !== -1) {
-    this.listComments.splice(eliminar, 1);
+  constructor(private route: ActivatedRoute,
+    private postService: PostserviceService) {
+    this.id = 0;
   }
-}
-mayorAmenor(): void {
- this.listComments.sort((a,b) => b.id - a.id)
-}
 
-menorAmayor(): void {
-  this.listComments.sort((a,b) => a.id - b.id);
-}
+  ngOnInit(): void {
+    this.route.params.subscribe(params => {
+      this.id = params['id'];
+    })
+    this.getComments();
 
-moveComment(id: number): void {
-  
-  const idComment = this.listComments.findIndex(item => item.id === id)
-  const idPosition = this.listComments[idComment];
-  this.listComments[idComment] = this.listComments[idComment - 1];
-  this.listComments[idComment - 1] = idPosition;
- 
+  }
 
-}
+  getComments(): void {
+    this.postService.getComments(this.id).subscribe(data => {
+      this.listComments = (data)
+    })
+  }
+
+  deleteComment(id: number): void {
+    const eliminar = this.listComments.findIndex(comment => comment.id === id)
+    if (eliminar !== -1) {
+      this.listComments.splice(eliminar, 1);
+    }
+  }
+  mayorAmenor(): void {
+    this.listComments.sort((a, b) => b.id - a.id)
+  }
+
+  menorAmayor(): void {
+    this.listComments.sort((a, b) => a.id - b.id);
+  }
+
+  moveComment(id: number): void {
+
+    const idComment = this.listComments.findIndex(item => item.id === id)
+    if(idComment == 0) return ;
+    const idPosition = this.listComments[idComment];
+    this.listComments[idComment] = this.listComments[idComment - 1];
+    this.listComments[idComment - 1] = idPosition;
+
+
+  }
 
 }
 

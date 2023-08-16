@@ -1,0 +1,15 @@
+<li class="relative flex gap-x-4 place-content-center my-2">
+    <div class="flex-auto rounded-md p-3 ring-1 ring-inset ring-gray-200">
+        <div class="flex justify-between gap-x-4">
+            <div class="py-0.5 text-xs leading-5 text-gray-500">
+                <span class="font-medium text-gray-900">{{comment.name}}</span>
+            </div>
+            <p class="flex-none py-0.5 text-xs leading-5 text-gray-500">{{comment.id}}</p>
+        </div>
+        <p class="text-sm leading-6 text-gray-500">{{comment.body}}</p>
+
+        <app-buttons [iconLeft]="'X'" iconRight="⇧" [isDisabledRight]="isMoveDisabled" (onLeft)="deleteCommentEmiter.emit(comment.id)"
+            (onRight)="moveCommentEmiter.emit(comment.id)" />
+
+    </div>
+</li>
