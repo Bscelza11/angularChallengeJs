@@ -11,6 +11,7 @@ import { NavbarComponent } from './core/navbar/navbar.component';
 import { CommentsComponent } from './shared/posts/comments/comments.component';
 import { CommentComponent } from './shared/posts/comment/comment.component';
 import { ButtonsComponent } from './shared/posts/buttons/buttons.component';
+import { PostComponent } from './shared/posts/post/post.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ButtonsComponent } from './shared/posts/buttons/buttons.component';
     NavbarComponent,
     CommentsComponent,
     CommentComponent,
-    ButtonsComponent
+    ButtonsComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,

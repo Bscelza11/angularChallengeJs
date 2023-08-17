@@ -1,22 +1,6 @@
-<button class="bg-red-500 hover:bg-blue-700 text-white font-bold py-2 px-4 m-1 rounded" (click)="deleteFirstPost()">
-  Delete First Post</button>
+
+<app-buttons [iconLeft]="'Add new post'" [iconRight]="'Delete first post'" (onLeft)="addPost()" (onRight)="deleteFirstPost()"></app-buttons>
 <div class="m-2">
-
-  <li class="relative flex gap-x-4 place-content-center" *ngFor="let post of listPosts">
-    <div class="flex-auto rounded-md p-3 ring-1 ring-inset ring-gray-200">
-      <div class="flex justify-between gap-x-4">
-        <div class="py-0.5 text-xs leading-5 text-gray-500"><span
-            class="font-medium text-gray-900">{{post.title}}</span></div>
-      </div>
-      <p class="text-sm leading-6 text-gray-500">{{post.body}}</p>
-      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 m-1 rounded"
-        (click)="showComments(post.id)"> Comentarios</button>
-      <button class="bg-yellow-500 hover:bg-blue-700 text-white font-bold py-2 px-4 m-1 rounded" (click)="addPost()">
-        Add comentario</button>
-      <button class="bg-red-500 hover:bg-blue-700 text-white font-bold py-2 px-4 m-1 rounded"
-        (click)="deletePost(post.id)"> Delete</button>
-
-
-    </div>
-  </li>
+<app-post *ngFor="let post of listPosts" [post]="post" (showCommentEmiter)="showComments($event)" 
+(deletePostEmiter)="deletePost($event)"  (addCommentEmiter)="addPost()"></app-post>
 </div>

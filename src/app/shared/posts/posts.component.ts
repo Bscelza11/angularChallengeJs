@@ -49,7 +49,7 @@ export class PostsComponent implements OnInit {
     const newId = this.listPosts.length + 1;
     const newPost = {title: 'title', body: 'lorem impsu', id: newId }
 
-    this.listPosts.push(newPost);
+    this.listPosts.unshift(newPost);
   }
 
 
